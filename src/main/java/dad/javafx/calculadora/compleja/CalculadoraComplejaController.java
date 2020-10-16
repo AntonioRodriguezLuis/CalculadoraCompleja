@@ -5,8 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -105,7 +103,6 @@ public class CalculadoraComplejaController extends Application {
 	}
 
 	private void OnOperacionCambia(String nv) {
-		try {
 			switch (nv) {
 			case "+":
 				resultadoNumeroComplejo.realProperty()
@@ -152,16 +149,6 @@ public class CalculadoraComplejaController extends Application {
 						);
 				break;
 			}
-		} catch (RuntimeException ex) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Calculadora Compleja");
-			alert.setHeaderText("ERROR");
-			alert.setContentText("El numero introducido no es valido.");
-			alert.showAndWait();
-			// para limpiar los campos de resultado despues del error
-			resultadoRealText.setText("");
-			resultadoImaginarioText.setText("");
-		}
 	}
 
 	public static void main(String[] args) {
